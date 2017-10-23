@@ -1,4 +1,4 @@
-FROM python:3.5.3-slim
+FROM python:3.5.3
 
 ENV PHANTOMJS_VERSION 2.1.1-linux-x86_64
 # For PhantomJS
