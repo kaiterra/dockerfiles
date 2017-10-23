@@ -4,13 +4,23 @@ ENV PHANTOMJS_VERSION 2.1.1-linux-x86_64
 # For PhantomJS
 ENV DEBIAN_PACKAGES libfontconfig git
 ENV DEBIAN_DEV_PACKAGES bzip2
+ENV LIBRDKAFKA_VERSION 0.11.1
+
+ENV CPLUS_INCLUDE_PATH /usr/local/include
+ENV LIBRARY_PATH /usr/local/lib
+ENV LD_LIBRARY_PATH /usr/local/lib
 
 RUN apt-get update && apt-get install -y -qq curl \
     && apt-get install -y -qq \
         $DEBIAN_PACKAGES \
         $DEBIAN_DEV_PACKAGES \
+    && curl -Lk -o /root/librdkafka-${LIBRDKAFKA_VERSION}.tar.gz https://github.com/edenhill/librdkafka/archive/v${LIBRDKAFKA_VERSION}.tar.gz \
+    && tar -xzf /root/librdkafka-${LIBRDKAFKA_VERSION}.tar.gz -C /root \
+    && cd /root/librdkafka-${LIBRDKAFKA_VERSION} \
+    && ./configure && make && make install && make clean && ./configure --clean \
+    && cd / \
     # Base packages that we'll always need
-    && pip install requests lxml beautifulsoup4==4.5 selenium==3.6 \
+    && pip install requests lxml beautifulsoup4==4.5 selenium==3.6 confluent-kafka==0.11.0 \
     # Install PhantomJS
     && curl -sSLO https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION.tar.bz2 \
     && tar jxf phantomjs-$PHANTOMJS_VERSION.tar.bz2 -C /usr/bin phantomjs-$PHANTOMJS_VERSION/bin/phantomjs \
