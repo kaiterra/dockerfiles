@@ -18,8 +18,6 @@ RUN apt-get update && apt-get install -y -qq curl \
     # Base packages that we'll always need
     && pip install requests confluent-kafka==0.11.0 \
     # CLEAN UP
-    && mv /usr/bin/phantomjs-$PHANTOMJS_VERSION/bin/phantomjs /usr/bin \
-    && rm /phantomjs-$PHANTOMJS_VERSION.tar.bz2 \
     && apt-get -qq -y --purge remove \
         $DEBIAN_DEV_PACKAGES \
     && apt-get -qq -y autoremove \
