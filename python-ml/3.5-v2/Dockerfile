@@ -1,6 +1,6 @@
 FROM python:3.5.3
 
-ENV PIP_PACKAGES APScheduler==3.4.0 bleach==1.5.0 tzlocal==1.4 pytz==2017.3 PyYAML==3.12 requests==2.9.1 protobuf==3.4.0 pycurl==7.43.0 pyparsing==2.2.0 python-dateutil==2.6.1 Markdown==2.6.9 responses==0.8.1 urllib3==1.13.1 Werkzeug==0.12.2 chardet==2.3.0 cookies==2.2.1 cycler==0.10.0 enum34==1.1.6 geopy==1.11.0 h5py==2.7.1 html5lib==0.9999999 Keras==2.1.1 matplotlib==2.1.0 numpy==1.13.3 pandas==0.21.0 python-forecastio==1.3.5 scikit-learn==0.19.1 scipy==1.0.0 six==1.10.0 tensorflow==1.4.0 tensorflow-tensorboard==0.4.0rc2
+ENV PIP_PACKAGES APScheduler==3.4.0 bleach==1.5.0 tzlocal==1.4 pytz==2017.3 PyYAML==3.12 requests==2.9.1 protobuf==3.4.0 pycurl==7.43.0 pyparsing==2.2.0 python-dateutil==2.6.1 Markdown==2.6.9 responses==0.8.1 urllib3==1.13.1 Werkzeug==0.12.2 chardet==2.3.0 cookies==2.2.1 cycler==0.10.0 enum34==1.1.6 geopy==1.11.0 h5py==2.7.1 html5lib==0.9999999 Keras==2.1.3 matplotlib==2.1.0 numpy==1.13.3 pandas==0.21.0 python-forecastio==1.3.5 scikit-learn==0.19.1 scipy==1.0.0 six==1.10.0 tensorflow==1.4.0 tensorflow-tensorboard==0.4.0rc2
 
 RUN apt-get update && apt-get install -y -qq curl \
     #&& apt-get install -y -qq \
