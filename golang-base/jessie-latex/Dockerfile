@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		curl \
 		netcat-openbsd \
 		iputils-ping \
-		texlive-binaries \
+		texlive \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY zoneinfo.zip /usr/local/go/lib/time/
