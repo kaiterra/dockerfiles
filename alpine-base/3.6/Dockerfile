@@ -1,7 +1,7 @@
 FROM alpine:3.6
 # Base Alpine Linux image with a couple extra packages that are extremely useful for debugging
 
-ENV ALPINE_PACKAGES ca-certificates strace bind-tools
+ENV ALPINE_PACKAGES ca-certificates strace bind-tools curl bash
 
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
