@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y -qq curl \
     && cd / \
     # Base packages that we'll pretty much always need
     && pip install requests lxml beautifulsoup4==4.5 selenium==3.11 confluent-kafka==0.11.6 \
+    # Install Firefox
+	&& apt-get install -y -qq --no-install-recommends firefox-esr=60.3.0esr-1~deb9u1 \
     # Install Firefox driver for Selenium
     && curl -sSLO https://github.com/mozilla/geckodriver/releases/download/${GECKODRIVER_VERSION}/geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz \
     && echo "${GECKODRIVER_MD5SUM} geckodriver-${GECKODRIVER_VERSION}-linux64.tar.gz" | md5sum -c \
@@ -27,7 +29,7 @@ RUN apt-get update && apt-get install -y -qq curl \
         $DEBIAN_DEV_PACKAGES \
     && apt-get -qq -y autoremove \
     && apt-get -qq -y clean \
-    && rm /var/lib/apt/lists/* -Rf
+    && rm /var/lib/apt/lists/* /var/cache/apt/* -Rf
 
 
 RUN mkdir -p /app
